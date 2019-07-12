@@ -17,12 +17,12 @@ base_controller:
   publish_odom_tf: true
 
   linear_speed_limit: 1.5
-  linear_acceleration_limit: 2.5
-  linear_deceleration_limit: 2.5
+  linear_acceleration_limit: 2.0
+  linear_deceleration_limit: 2.0
 
-  yaw_speed_limit: 3.0
-  yaw_acceleration_limit: 3.2
-  yaw_deceleration_limit: 3.2
+  yaw_speed_limit: 0.8
+  yaw_acceleration_limit: 1.0
+  yaw_deceleration_limit: 1.0
   
   cmd_vel_timeout: 0.0  # disabled, as it is on the real platform
 
