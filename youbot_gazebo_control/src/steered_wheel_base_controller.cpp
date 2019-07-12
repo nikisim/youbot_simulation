@@ -733,6 +733,7 @@ private:
     static const double DEF_WHEEL_DIA_SCALE;
 
     static const double DEF_ODOM_PUB_FREQ;
+    static const bool DEF_ODOM_TF_PUB;
     static const string DEF_ODOM_FRAME;
     static const string DEF_BASE_FRAME;
     static const double DEF_INIT_X;
@@ -787,6 +788,7 @@ private:
 
     // Odometry
     bool comp_odom_;              // Compute odometry
+    bool publish_tf_;             // Publish TF od 'odom' frame ID
     Duration odom_pub_period_;    // Odometry publishing period
     Affine2d init_odom_to_base_;  // Initial odometry to base frame transform
     Affine2d odom_to_base_;       // Odometry to base frame transform
@@ -822,6 +824,7 @@ const double SteeredWheelBaseController::DEF_ZERO_AXLE_SPEED_ANG = 1.5708;
 const double SteeredWheelBaseController::DEF_WHEEL_DIA_SCALE = 1;
 
 const double SteeredWheelBaseController::DEF_ODOM_PUB_FREQ = 30;
+const bool SteeredWheelBaseController::DEF_ODOM_TF_PUB = true;
 const string SteeredWheelBaseController::DEF_ODOM_FRAME = "odom";  // NOLINT(runtime/string)
 const string SteeredWheelBaseController::DEF_BASE_FRAME = "base_link";  // NOLINT(runtime/string)
 const double SteeredWheelBaseController::DEF_INIT_X = 0;
@@ -899,7 +902,9 @@ void SteeredWheelBaseController::starting(const Time& time)
         last_odom_y_ = odom_to_base_.translation().y();
         last_odom_yaw_ = atan2(odom_to_base_(1, 0), odom_to_base_(0, 0));
         last_odom_pub_time_ = time;
-        last_odom_tf_pub_time_ = time;
+        if (publish_tf_){
+            last_odom_tf_pub_time_ = time;
+        }
     }
 
     vel_cmd_.x_vel = 0;
@@ -1105,6 +1110,11 @@ init(EffortJointInterface *const eff_joint_iface,
     ctrlr_nh.param("odometry_publishing_frequency", odom_pub_freq,
                    DEF_ODOM_PUB_FREQ);
     comp_odom_ = odom_pub_freq > 0;
+    bool publish_odom_tf;
+    ctrlr_nh.param("publish_odom_tf", publish_odom_tf,
+                   DEF_ODOM_TF_PUB);
+    publish_tf_ = publish_odom_tf;
+    
     if (comp_odom_)
     {
         odom_pub_period_ = Duration(1 / odom_pub_freq);
@@ -1138,13 +1148,15 @@ init(EffortJointInterface *const eff_joint_iface,
         odom_pub_.msg_.twist.twist.angular.y = 0;
         odom_pub_.init(ctrlr_nh, "/odom", 1);
 
-        odom_tf_pub_.msg_.transforms.resize(1);
-        geometry_msgs::TransformStamped& odom_tf_trans =
-            odom_tf_pub_.msg_.transforms[0];
-        odom_tf_trans.header.frame_id = odom_pub_.msg_.header.frame_id;
-        odom_tf_trans.child_frame_id = odom_pub_.msg_.child_frame_id;
-        odom_tf_trans.transform.translation.z = 0;
-        odom_tf_pub_.init(ctrlr_nh, "/tf", 1);
+	if (publish_tf_) {
+            odom_tf_pub_.msg_.transforms.resize(1);
+            geometry_msgs::TransformStamped& odom_tf_trans =
+                odom_tf_pub_.msg_.transforms[0];
+            odom_tf_trans.header.frame_id = odom_pub_.msg_.header.frame_id;
+            odom_tf_trans.child_frame_id = odom_pub_.msg_.child_frame_id;
+            odom_tf_trans.transform.translation.z = 0;
+            odom_tf_pub_.init(ctrlr_nh, "/tf", 1);
+        }
     }
 
     vel_cmd_sub_ = ctrlr_nh.subscribe("/cmd_vel", 1,
@@ -1374,21 +1386,23 @@ void SteeredWheelBaseController::compOdometry(const Time& time,
     bool orientation_comped = false;
 
     // tf
-    if (time - last_odom_tf_pub_time_ >= odom_pub_period_ &&
-            odom_tf_pub_.trylock())
-    {
-        orientation = tf::createQuaternionMsgFromYaw(odom_yaw);
-        orientation_comped = true;
+    if (publish_tf_) {
+        if (time - last_odom_tf_pub_time_ >= odom_pub_period_ &&
+                odom_tf_pub_.trylock())
+        {
+            orientation = tf::createQuaternionMsgFromYaw(odom_yaw);
+            orientation_comped = true;
 
-        geometry_msgs::TransformStamped& odom_tf_trans =
-            odom_tf_pub_.msg_.transforms[0];
-        odom_tf_trans.header.stamp = time;
-        odom_tf_trans.transform.translation.x = odom_x;
-        odom_tf_trans.transform.translation.y = odom_y;
-        odom_tf_trans.transform.rotation = orientation;
+            geometry_msgs::TransformStamped& odom_tf_trans =
+                odom_tf_pub_.msg_.transforms[0];
+            odom_tf_trans.header.stamp = time;
+            odom_tf_trans.transform.translation.x = odom_x;
+            odom_tf_trans.transform.translation.y = odom_y;
+            odom_tf_trans.transform.rotation = orientation;
 
-        odom_tf_pub_.unlockAndPublish();
-        last_odom_tf_pub_time_ = time;
+            odom_tf_pub_.unlockAndPublish();
+            last_odom_tf_pub_time_ = time;
+        }
     }
 
     // odom

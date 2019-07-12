@@ -13,6 +13,9 @@ base_controller:
 
   base_frame: base_footprint
 
+  odometry_publishing_frequency: 30 #30 is default, 0 - disabled 
+  publish_odom_tf: true
+
   linear_speed_limit: 1.5
   linear_acceleration_limit: 2.5
   linear_deceleration_limit: 2.5
