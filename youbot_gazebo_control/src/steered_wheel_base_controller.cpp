@@ -1415,6 +1415,12 @@ void SteeredWheelBaseController::compOdometry(const Time& time,
         odom_pub_.msg_.pose.pose.position.x = odom_x;
         odom_pub_.msg_.pose.pose.position.y = odom_y;
         odom_pub_.msg_.pose.pose.orientation = orientation;
+        odom_pub_.msg_.pose.covariance[0] = 0.01;
+        odom_pub_.msg_.pose.covariance[7] = 0.01;
+        odom_pub_.msg_.pose.covariance[14] = 0.01;
+        odom_pub_.msg_.pose.covariance[21] = 0.01;
+        odom_pub_.msg_.pose.covariance[28] = 0.01;
+        odom_pub_.msg_.pose.covariance[35] = 0.05;
 
         odom_pub_.msg_.twist.twist.linear.x =
             (odom_x - last_odom_x_) * inv_delta_t;
@@ -1422,6 +1428,9 @@ void SteeredWheelBaseController::compOdometry(const Time& time,
             (odom_y - last_odom_y_) * inv_delta_t;
         odom_pub_.msg_.twist.twist.angular.z =
             (odom_yaw - last_odom_yaw_) * inv_delta_t;
+        odom_pub_.msg_.twist.covariance = odom_pub_.msg_.pose.covariance;
+
+	
 
         odom_pub_.unlockAndPublish();
         last_odom_pub_time_ = time;
