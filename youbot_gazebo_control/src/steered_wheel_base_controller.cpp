@@ -739,6 +739,8 @@ private:
     static const double DEF_INIT_X;
     static const double DEF_INIT_Y;
     static const double DEF_INIT_YAW;
+    static const std::vector<double>  DEF_ODOM_POSE_COV;
+    static const std::vector<double>  DEF_ODOM_TWIST_COV;
 
     static const Vector2d X_DIR;
 
@@ -804,6 +806,8 @@ private:
     RealtimePublisher<nav_msgs::Odometry> odom_pub_;
     RealtimePublisher<tf::tfMessage> odom_tf_pub_;
     Time last_odom_pub_time_, last_odom_tf_pub_time_;
+    std::vector<double> odom_pose_covariance_; //Odometry covariance matrix
+    std::vector<double> odom_twist_covariance_; //Odometry covariance matrix
 };
 
 const string SteeredWheelBaseController::DEF_ROBOT_DESC_NAME = "robot_description";  // NOLINT(runtime/string)
@@ -830,6 +834,8 @@ const string SteeredWheelBaseController::DEF_BASE_FRAME = "base_link";  // NOLIN
 const double SteeredWheelBaseController::DEF_INIT_X = 0;
 const double SteeredWheelBaseController::DEF_INIT_Y = 0;
 const double SteeredWheelBaseController::DEF_INIT_YAW = 0;
+const std::vector<double> SteeredWheelBaseController::DEF_ODOM_POSE_COV(36, 0.0);
+const std::vector<double> SteeredWheelBaseController::DEF_ODOM_TWIST_COV(36, 0.0);
 
 // X direction
 const Vector2d SteeredWheelBaseController::X_DIR = Vector2d::UnitX();
@@ -1146,6 +1152,14 @@ init(EffortJointInterface *const eff_joint_iface,
         odom_pub_.msg_.twist.twist.linear.z = 0;
         odom_pub_.msg_.twist.twist.angular.x = 0;
         odom_pub_.msg_.twist.twist.angular.y = 0;
+        ctrlr_nh.param("odom_pose_covariance", odom_pose_covariance_, DEF_ODOM_POSE_COV);
+        for (unsigned i = 0; i < odom_pose_covariance_.size(); i++){
+          odom_pub_.msg_.pose.covariance[i] = odom_pose_covariance_[i];
+        }
+        ctrlr_nh.param("odom_twist_covariance", odom_twist_covariance_, DEF_ODOM_TWIST_COV);
+        for (unsigned i = 0; i < odom_twist_covariance_.size(); i++){
+          odom_pub_.msg_.twist.covariance[i] = odom_twist_covariance_[i];
+        }
         odom_pub_.init(ctrlr_nh, "/odom", 1);
 
 	if (publish_tf_) {
@@ -1415,12 +1429,6 @@ void SteeredWheelBaseController::compOdometry(const Time& time,
         odom_pub_.msg_.pose.pose.position.x = odom_x;
         odom_pub_.msg_.pose.pose.position.y = odom_y;
         odom_pub_.msg_.pose.pose.orientation = orientation;
-        odom_pub_.msg_.pose.covariance[0] = 0.01;
-        odom_pub_.msg_.pose.covariance[7] = 0.01;
-        odom_pub_.msg_.pose.covariance[14] = 0.01;
-        odom_pub_.msg_.pose.covariance[21] = 0.01;
-        odom_pub_.msg_.pose.covariance[28] = 0.01;
-        odom_pub_.msg_.pose.covariance[35] = 0.05;
 
         odom_pub_.msg_.twist.twist.linear.x =
             (odom_x - last_odom_x_) * inv_delta_t;
@@ -1428,9 +1436,6 @@ void SteeredWheelBaseController::compOdometry(const Time& time,
             (odom_y - last_odom_y_) * inv_delta_t;
         odom_pub_.msg_.twist.twist.angular.z =
             (odom_yaw - last_odom_yaw_) * inv_delta_t;
-        odom_pub_.msg_.twist.covariance = odom_pub_.msg_.pose.covariance;
-
-	
 
         odom_pub_.unlockAndPublish();
         last_odom_pub_time_ = time;

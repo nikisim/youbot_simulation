@@ -16,6 +16,28 @@ base_controller:
   odometry_publishing_frequency: 30 #30 is default, 0 - disabled 
   publish_odom_tf: false
 
+  # Row-major representation of the 6x6 covariance matrix
+  # The orientation parameters use a fixed-axis representation.
+  # In order, the parameters are:
+  # (x, y, z, rotation about X axis, rotation about Y axis, rotation about Z axis)
+  odom_pose_covariance: [0.05, 0.0,  0.0,  0.0,  0.0,  0.0,
+                         0.0,  0.05, 0.0,  0.0,  0.0,  0.0,
+                         0.0,  0.0,  0.01, 0.0,  0.0,  0.0,
+                         0.0,  0.0,  0.0,  0.01, 0.0,  0.0,
+                         0.0,  0.0,  0.0,  0.0,  0.01, 0.0,
+                         0.0,  0.0,  0.0,  0.0,  0.0,  0.05]
+
+  # Row-major representation of the 6x6 covariance matrix
+  # The orientation parameters use a fixed-axis representation.
+  # In order, the parameters are:
+  # (x, y, z, rotation about X axis, rotation about Y axis, rotation about Z axis)
+  odom_twist_covariance: [0.05, 0.0,  0.0,  0.0,  0.0,  0.0,
+                          0.0,  0.05, 0.0,  0.0,  0.0,  0.0,
+                          0.0,  0.0,  0.01, 0.0,  0.0,  0.0,
+                          0.0,  0.0,  0.0,  0.01, 0.0,  0.0,
+                          0.0,  0.0,  0.0,  0.0,  0.01, 0.0,
+                          0.0,  0.0,  0.0,  0.0,  0.0,  0.05]
+
   linear_speed_limit: 1.5
   linear_acceleration_limit: 2.0
   linear_deceleration_limit: 2.0
