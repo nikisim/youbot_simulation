@@ -14,7 +14,7 @@ base_controller:
   base_frame: base_footprint
 
   odometry_publishing_frequency: 30 #30 is default, 0 - disabled 
-  publish_odom_tf: false
+  publish_odom_tf: true
 
   # Row-major representation of the 6x6 covariance matrix
   # The orientation parameters use a fixed-axis representation.
