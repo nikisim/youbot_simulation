@@ -5,6 +5,7 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="true"/>
+  <arg name="name" default="custom_world_red_blocks.world"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="false"/>
@@ -12,14 +13,14 @@
     <arg name="gui" value="$(arg gui)"/>
     <arg name="headless" value="$(arg headless)"/>
     <arg name="debug" value="$(arg debug)"/>
-    <arg name="world_name" value="worlds/empty.world"/>
+    <arg name="world_name" value="$(find youbot_gazebo_worlds)/urdf/$(arg name)"/>
   </include>
 
     <!-- send world urdf to param server -->
-	<param name="world_description" command="$(find xacro)/xacro $(find youbot_gazebo_worlds)/urdf/harbour.sdf" />
+	<!--<param name="world_description" command="$(find xacro)/xacro $(find youbot_gazebo_worlds)/urdf/custom_world_red_blocks.sdf" />-->
 
     <!-- spawn uploaded world model -->
-	<node pkg="gazebo_ros" type="spawn_model" name="gazebo_world_model" args="-sdf -param world_description -model world -x 0.0 -y 0.0 -z 0.2" respawn="false" output="screen" />
+	<!--<node pkg="gazebo_ros" type="spawn_model" name="gazebo_world_model" args="-sdf -param world_description -model world -x 0.0 -y 0.0 -z 0.2" respawn="false" output="screen" />-->
 
 
 </launch>
