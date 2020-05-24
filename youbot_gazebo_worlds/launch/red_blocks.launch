@@ -4,7 +4,7 @@
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
-  <arg name="debug" default="true"/>
+  <arg name="debug" default="false"/>
   <arg name="name" default="custom_world_red_blocks.world"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
