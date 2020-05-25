@@ -3,12 +3,12 @@
 
   <arg name="robot" default="youbot"/>
   <arg name="world" default="red_blocks"/>
-  <arg name="init_pos_x" default="2.90"/>
-  <arg name="init_pos_y" default="2.0"/>
+  <arg name="init_pos_x" default="0"/>
+  <arg name="init_pos_y" default="0.0"/>
   <arg name="init_pos_z" default="0.1"/>
   <arg name="init_pos_roll" default="0" />
   <arg name="init_pos_pitch" default="0" />
-  <arg name="init_pos_yaw" default="0.80" />
+  <arg name="init_pos_yaw" default="0.0" />
 
   <!-- launch world -->
   <include file="$(find youbot_gazebo_worlds)/launch/$(arg world).launch" />
