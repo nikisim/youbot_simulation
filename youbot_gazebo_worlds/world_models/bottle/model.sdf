@@ -46,7 +46,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/tom/youbot_ws/src/youbot_simulation/youbot_gazebo_worlds/world_models/bottle/meshes/bottle.dae</uri>
+            <uri>model://bottle/meshes/bottle.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
