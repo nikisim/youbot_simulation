@@ -23,7 +23,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://bottle/meshes/bottle.dae</uri>
+            <uri>model://bottle/meshes/pet_bottle.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -46,7 +46,7 @@
         <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://bottle/meshes/bottle.dae</uri>
+            <uri>model://bottle/meshes/pet_bottle.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

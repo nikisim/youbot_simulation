@@ -14,28 +14,38 @@ find_package(catkin REQUIRED
     realtime_tools
     roscpp
     roslint
+    gazebo_ros
     tf
     urdf
 )
 
+
+find_package(gazebo REQUIRED)
+find_package(ignition-math6 REQUIRED)
+find_package(Boost REQUIRED COMPONENTS system)
+
 catkin_package(
   LIBRARIES
-    steered_wheel_base_controller
+    base_controller
   CATKIN_DEPENDS
     controller_interface
     hardware_interface
 )
 
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIR}
 )
 
 ### LIBS
-add_library(steered_wheel_base_controller
-  src/steered_wheel_base_controller.cpp
-)
-target_link_libraries(steered_wheel_base_controller
+add_library(base_controller
+        src/base_controller.cpp
+        include/plugins/base_controller.h)
+target_link_libraries(base_controller
   ${catkin_LIBRARIES}
+  ${GAZEBO_LIBRARIES}
 )
 
 ### TESTS
@@ -49,10 +59,9 @@ endif()
 
 
 ### INSTALLS
-install(TARGETS steered_wheel_base_controller
+install(TARGETS base_controller
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 )
 
 install(DIRECTORY config/ DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config)
 install(DIRECTORY launch/ DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch)
-install(FILES youbot_gazebo_control_plugins.xml DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
