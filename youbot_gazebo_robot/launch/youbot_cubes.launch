@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 
-  <arg name="robot" default="youbot"/>
+  <arg name="robot" default="youbot_with_cam3d"/>
   <arg name="world" default="draft_world"/>
   <arg name="init_pos_x" default="0"/>
   <arg name="init_pos_y" default="0.0"/>  
