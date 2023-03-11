@@ -56,7 +56,11 @@
     </model>
     
     <model name='green_cube_right'>
+<<<<<<< HEAD
       <pose>2.25 0.2 0.24 0 -0 0</pose>
+=======
+      <pose>2.2 0 0.24 0 -0 0</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -110,8 +114,13 @@
       <self_collide>1</self_collide>
       <kinematic>1</kinematic>
     </model>
+<<<<<<< HEAD
     <model name='blue_cube_left'>
       <pose>-2.25 0 1 0 -0 0</pose>
+=======
+    <model name='blue_cube'>
+      <pose>-2.5 0 1 0 -0 0</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -575,7 +584,11 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+<<<<<<< HEAD
       <pose>2.5 0 0 0 -0 1.57176</pose>
+=======
+      <pose>2.45957 -0.167008 0 0 -0 1.57176</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
     </model>
     <model name='table_left'>
       <static>1</static>
@@ -770,10 +783,17 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
+<<<<<<< HEAD
       <pose>-2.50 0 0 0 -0 1.57176</pose>
     </model>
     <model name='red_cube_left'>
       <pose>-2.25 -0.20 0.24 -1.5e-05 1.9e-05 0.001897</pose>
+=======
+      <pose>-2.80565 -0.072487 0 0 -0 1.57176</pose>
+    </model>
+    <model name='red_cube_left'>
+      <pose>-2.5 -0.230947 0.24 -1.5e-05 1.9e-05 0.001897</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -828,7 +848,11 @@
       <kinematic>1</kinematic>
     </model>
     <model name='green_cube_left'>
+<<<<<<< HEAD
       <pose>-2.25 0.20 0.24 -5e-06 -5e-06 1.1e-05</pose>
+=======
+      <pose>-2.5 0.238026 0.24 -5e-06 -5e-06 1.1e-05</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -883,7 +907,11 @@
       <kinematic>1</kinematic>
     </model>
     <model name='blue_cube_right'>
+<<<<<<< HEAD
       <pose>2.25 0 0.24 0 0 0</pose>
+=======
+      <pose>2.2 -0.334869 0.24 1.1e-05 -5e-06 -2e-06</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -938,7 +966,11 @@
       <kinematic>1</kinematic>
     </model>
     <model name='red_cube_right'>
+<<<<<<< HEAD
       <pose>2.25 -0.2 0.24 0 0 0</pose>
+=======
+      <pose>2.2 -0.652888 0.240008 -8e-06 -0.000298 0.001888</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -993,7 +1025,11 @@
       <kinematic>1</kinematic>
     </model>
     <model name='green_cube_mid'>
+<<<<<<< HEAD
       <pose>-0.2 2.25 0.24 0 0 0</pose>
+=======
+      <pose>-0.361514 2.29091 0.240004 -1.1e-05 0.000133 7e-06</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -1048,7 +1084,11 @@
       <kinematic>1</kinematic>
     </model>
     <model name='blue_cube_mid'>
+<<<<<<< HEAD
       <pose>0 2.25 0.24 0 0 0</pose>
+=======
+      <pose>-0.089715 2.26245 0.24 -8e-06 1e-06 -3e-06</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
@@ -1103,7 +1143,11 @@
       <kinematic>1</kinematic>
     </model>
     <model name='red_cube_mid'>
+<<<<<<< HEAD
       <pose>0.20 2.25 0.24 0 0 0</pose>
+=======
+      <pose>0.220091 2.25774 0.240001 1e-06 3.3e-05 0.001895</pose>
+>>>>>>> 35f0fe37c059522ae9f0030f99b290df57da31be
       <link name='link'>
         <collision name='collision'>
           <geometry>
