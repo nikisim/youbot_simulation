@@ -55,7 +55,7 @@
       </link>
     </model>
     <model name='green_cube_right_new'>
-      <pose>2.25 0.15 0.135 0 -0 0</pose>
+      <pose>2.15 0.15 0.135 0 -0 0</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
@@ -157,7 +157,7 @@
       <allow_auto_disable>1</allow_auto_disable>
     </model>
     <model name='blue_cube_left_new'>
-      <pose>-2.25 0 0.135 0 0 0</pose>
+      <pose>-2.15 0 0.135 0 0 0</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
@@ -866,7 +866,7 @@
       <pose>-2.50 0 0 0 -0 1.57176</pose>
     </model>
     <model name='red_cube_left_new'>
-      <pose>-2.25 -0.15 0.135 0 0 0</pose>
+      <pose>-2.15 -0.15 0.135 0 0 0</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
@@ -968,7 +968,7 @@
       <allow_auto_disable>1</allow_auto_disable>
     </model>
     <model name='green_cube_left_new'>
-      <pose>-2.25 0.15 0.135 -5e-06 -5e-06 1.1e-05</pose>
+      <pose>-2.15 0.15 0.135 -5e-06 -5e-06 1.1e-05</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
@@ -1070,7 +1070,7 @@
       <allow_auto_disable>1</allow_auto_disable>
     </model>
     <model name='blue_cube_right_new'>
-      <pose>2.25 0 0.135 0 0 0</pose>
+      <pose>2.15 0 0.135 0 0 0</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
@@ -1172,7 +1172,7 @@
       <allow_auto_disable>1</allow_auto_disable>
     </model>
     <model name='red_cube_right_new'>
-      <pose>2.25 -0.15 0.135 0 0 0</pose>
+      <pose>2.15 -0.15 0.135 0 0 0</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
@@ -1274,7 +1274,7 @@
       <allow_auto_disable>1</allow_auto_disable>
     </model>
     <model name='green_cube_mid'>
-      <pose>-0.15 2.25 0.135 0 0 0</pose>
+      <pose>-0.15 2.15 0.135 0 0 0</pose>
 
       <link name='link'>
         <self_collide>1</self_collide>
@@ -1377,7 +1377,7 @@
       <allow_auto_disable>1</allow_auto_disable>
     </model>
     <model name='blue_cube_mid'>
-      <pose>0 2.25 0.135 0 0 0</pose>
+      <pose>0 2.15 0.135 0 0 0</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
@@ -1479,7 +1479,7 @@
       <allow_auto_disable>1</allow_auto_disable>
     </model>
     <model name='red_cube_mid'>
-      <pose>0.15 2.25 0.135 0 0 0</pose>
+      <pose>0.15 2.15 0.135 0 0 0</pose>
       <link name='link'>
         <self_collide>1</self_collide>
         <inertial>
