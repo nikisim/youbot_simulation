@@ -23,7 +23,7 @@
             </contact>
             <friction>
               <ode>
-                <mu>100</mu>
+                <mu>1</mu>
                 <mu2>50</mu2>
               </ode>
               <torsional>
@@ -68,7 +68,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -109,8 +109,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -170,7 +170,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -211,8 +211,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -879,7 +879,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -920,8 +920,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -981,7 +981,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -1022,8 +1022,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -1083,7 +1083,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -1124,8 +1124,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -1185,7 +1185,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -1226,8 +1226,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -1288,7 +1288,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -1329,8 +1329,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -1390,7 +1390,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -1431,8 +1431,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
@@ -1492,7 +1492,7 @@
             <iyz>0</iyz>
             <izz>0.15</izz>
           </inertia>
-          <mass>0.15</mass>
+          <mass>0.2</mass>
         </inertial>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
@@ -1533,8 +1533,8 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>100</mu2>
+                <mu>1</mu>
+                <mu2>1</mu2>
                 <fdir1>0 0 0</fdir1>
                 <slip1>0</slip1>
                 <slip2>0</slip2>
